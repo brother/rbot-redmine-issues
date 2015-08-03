@@ -10,20 +10,28 @@ require 'open-uri'
 require 'json'
 
 class RedmineLookup < Plugin
-   def privmsg(m)
-     m.reply "The redmine issue lookup will wait for a issue number to be mentioned, then show some information relevant to that issue."
+  Config.register Config::StringValue.new('redmine.host',
+                                          :default => 'http://localhost',
+                                          :desc => _('Domain URL with URI scheme.'))
+  Config.register Config::ArrayValue.new('redmine.channels',
+                                         :default => ['#kaos'],
+                                         :desc => "The channels where the bot will listen (and reply).")
+
+  def privmsg(m)
+     m.reply "Listens to channel(s) and responds with issue information from a redmine tracker. Activate the REST API to make it work."
    end
 
    def help(plugin, topic="")
-     "The redmine issue lookup will wait for a issue number to be mentioned, then show some information relevant to that issue."
+     "Activate your REST API in Redmine. configure host to read from and channel(s) to watch. See !config list redmine."
    end
 
    def message(m)
      # move to config some day...
-     host = "http://redmine.karen.hh.se"
-     channel = "#kaos"
+     #host = "http://redmine.karen.hh.se"
+     host = @bot.config['redmine.host']
 
-     if m.channel.to_s != channel
+     #channel = "#kaos"
+     unless @bot.config['redmine.channels'].include?(m.channel.to_s)
        return nil
      end
 

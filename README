@@ -2,15 +2,26 @@ Redmine issue connection
 
 WTFPL
 
-Listens to a channel for hashmark followed by digits. Outputs title
-and status + URL for all found (public) issues.
-If the issue is set to "in progress" the assignee is shown.
+Listens to a/some channel for hashmark followed by digits. Outputs
+title and status + URL for all found (public) issues.  If the issue is
+set to "in progress" the assignee is shown.
+
+Online confiuration via !config list redmine.
+
+redmine.host for location of redmine setup.
+    The bot appends /issues/number to this. In
+    'http://redmine.example.com/issues/42' redmine.host is
+    'http://redmine.example.com'
+
+redmine.channels for the channel(s) to listen and respond in.
+    The will listen only talk in the configurred channels. Comma and
+    space separated list.
+    For having #kaos and #test as channels do
+      !config set redmine.channels #test, #kaos
 
 TODO:
  Add some config stuff.
- - URL
  - ID for "in progress"
- - channel to work in
  - output format
 
 //brother
