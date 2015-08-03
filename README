@@ -1,0 +1,16 @@
+Redmine issue connection
+
+WTFPL
+
+Listens to a channel for hashmark followed by digits. Outputs title
+and status + URL for all found (public) issues.
+If the issue is set to "in progress" the assignee is shown.
+
+TODO:
+ Add some config stuff.
+ - URL
+ - ID for "in progress"
+ - channel to work in
+ - output format
+
+//brother
