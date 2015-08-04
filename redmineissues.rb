@@ -68,7 +68,7 @@ class RedmineLookup < Plugin
          end
 
          @bot.say(m.channel, output)
-         @bot.say(m.channel, "http://redmine.karen.hh.se/issues/" + String(data["issue"]["id"]))
+         @bot.say(m.channel, host + "/issues/" + String(data["issue"]["id"]))
        end
      end
    end
