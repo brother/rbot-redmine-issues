@@ -22,6 +22,7 @@ redmine.channels for the channel(s) to listen and respond in.
 TODO:
  Add some config stuff.
  - ID for "in progress"
+   - https://redmine.example.com/issue_statuses.json
  - output format
 
 //brother

@@ -60,6 +60,7 @@ class RedmineLookup < Plugin
 
          # This id might not be the same in all setups...
          # 2 is default for 'in progress'
+         # See TODO
          if data["issue"]["status"]["id"] == 2
            output += " (" + data["issue"]["assigned_to"]["name"] + ")"
          else
