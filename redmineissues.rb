@@ -27,10 +27,8 @@ class RedmineLookup < Plugin
 
    def message(m)
      # move to config some day...
-     #host = "http://redmine.karen.hh.se"
      host = @bot.config['redmine.host']
 
-     #channel = "#kaos"
      unless @bot.config['redmine.channels'].include?(m.channel.to_s)
        return nil
      end
