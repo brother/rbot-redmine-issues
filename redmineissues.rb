@@ -62,7 +62,12 @@ class RedmineLookup < Plugin
          # 2 is default for 'in progress'
          # See TODO
          if data["issue"]["status"]["id"] == 2
-           output += " (" + data["issue"]["assigned_to"]["name"] + ")"
+           if data["issue"]["assigned_to"] != nil
+             output += " (" + data["issue"]["assigned_to"]["name"] + ")"
+           else
+             # like this?
+             output += " (??)"
+           end
          else
            output += " (" + data["issue"]["status"]["name"] + ")"
          end
