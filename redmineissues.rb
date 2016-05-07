@@ -42,7 +42,7 @@ class RedmineLookup < Plugin
        items ||= []
        haystack.each do |needle|
          if needle.match(/\#\d{1,}/)
-           items << needle
+           items << needle.match(/\#\d{1,}/).to_s
          end
        end
 
